@@ -75,7 +75,7 @@
             this.buttonReadFile.TabIndex = 0;
             this.buttonReadFile.Text = "Прочитать";
             this.buttonReadFile.UseVisualStyleBackColor = true;
-            this.buttonReadFile.Click += new System.EventHandler(this.buttonReadFile_Click);
+            this.buttonReadFile.Click += new System.EventHandler(this.ButtonReadFile_Click);
             // 
             // groupBoxPath
             // 
@@ -112,6 +112,7 @@
             this.buttonEdit.TabIndex = 2;
             this.buttonEdit.Text = "Изменить";
             this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // buttonAdd
             // 
@@ -123,6 +124,7 @@
             this.buttonAdd.TabIndex = 1;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonList
             // 
@@ -171,6 +173,7 @@
             this.comboBoxPath.Size = new System.Drawing.Size(554, 28);
             this.comboBoxPath.Sorted = true;
             this.comboBoxPath.TabIndex = 4;
+            this.comboBoxPath.SelectedIndexChanged += new System.EventHandler(this.comboBoxPath_SelectedIndexChanged);
             // 
             // buttonExit
             // 

@@ -15,40 +15,57 @@ namespace ServerConfigEditor
 {
     public partial class FormConfigEditor : Form
     {
+        int selNun;
         public FormConfigEditor()
         {
             InitializeComponent();
             TextBoxEditor.SelectionTabs = new int[] { 15, 30, 45, 60 }; //установка размера табуляции в окне редактора
         }
-
-        private void ButtonExit_Click(object sender, EventArgs e)
+        #region Форма
+        private void FormConfigEditor_Load(object sender, EventArgs e) // при загрузке формы
         {
-            Properties.Settings.Default.UserPassword = ""; // присваем root пустой пароль
-            Properties.Settings.Default.Save(); // сохраняемся
-            Close();
+            string[] boxtext = File.ReadAllLines(@"path.txt");          // загружаем данные из файла в массив
+            comboBoxPath.Items.AddRange(boxtext);                       // помещаем массив в Combobox
         }
-
-        private void FormConfigEditor_Load(object sender, EventArgs e)
-        {
-            string[] text = File.ReadAllLines(@"path.txt"); // загружаем данные из файла в массив
-            comboBoxPath.Items.AddRange(text); // помещаем массив в Combobox
-        }
-
-        private void buttonOpenServerConnector_Click(object sender, EventArgs e) // вызов формы параметров подключения
-        {
-            FormServerConnector FormServerConnector = new FormServerConnector();
-            FormServerConnector.ShowDialog();
-        }
-
-        private void FormConfigEditor_Activated(object sender, EventArgs e)
+        private void FormConfigEditor_Activated(object sender, EventArgs e) // при активации формы
         {
             string ServerIP = Properties.Settings.Default.ServerIP; // IP СЕРВЕРА
             int ServerPort = Properties.Settings.Default.PortIP;    // ПОРТ СЕРВЕРА
             string PasswordRoot = Properties.Settings.Default.UserPassword; // Пароль root ( при выходе из приложения пароль сбрасывается)
             buttonOpenServerConnector.Text = ServerIP + ":" + ServerPort.ToString(); // вывод в текст кнопки адрес и порт
         }
+        private void FormConfigEditor_FormClosing(object sender, FormClosingEventArgs e)//закрытие формы и выход из программы
+        {
+            Properties.Settings.Default.UserPassword = "";                      // присваем root пустой пароль
+            Properties.Settings.Default.Save();                                 // сохраняемся
+            saveComboboxList();                                                 //сохраняем массив ComboBox в файл
+        }
+        #endregion
 
-        private void buttonReadFile_Click(object sender, EventArgs e)// получение файла с сервера
+        #region кнопки формы (выход, конфиг подключения)
+        private void buttonOpenServerConnector_Click(object sender, EventArgs e) // вызов формы параметров подключения
+        {
+            FormServerConnector FormServerConnector = new FormServerConnector();
+            FormServerConnector.ShowDialog();
+        }
+        private void ButtonExit_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.UserPassword = ""; // присваем root пустой пароль
+            Properties.Settings.Default.Save(); // сохраняемся
+            Close();
+        }
+        #endregion
+
+        #region ComboBox
+        private void comboBoxPath_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedPath = comboBoxPath.SelectedItem.ToString();
+            selNun = comboBoxPath.SelectedIndex;
+        }
+        #endregion
+
+        #region Кнопки управления файлами
+        private void ButtonReadFile_Click(object sender, EventArgs e)// получение файла с сервера
         {
             TextBoxEditor.Clear();                                              // очистка бокса
             string ServerIP = Properties.Settings.Default.ServerIP;         // IP сервера
@@ -85,7 +102,34 @@ namespace ServerConfigEditor
             }
         }
 
-        private void ButtonList_Click(object sender, EventArgs e)//получениt списка доступных адресов
+        #endregion
+
+        #region Кнопки пути к файлам
+        private void ButtonAdd_Click(object sender, EventArgs e)    // добавление пути
+        {
+            string a = "";                                          // временная переменная
+
+            for (int i = 0; i < comboBoxPath.Items.Count; i++)      // перебор массива ComboBox
+            {
+                a = GetItemText(i);                                 // вывод списка построчно
+                if (comboBoxPath.Text == a)                         // если строка существует
+                {
+                    MessageBox.Show("Заданный путь уже существует"); // вывод сообщения
+                    //continue;
+                    break;                                           // прекращаем перебор значений 
+                }
+            }
+            if (comboBoxPath.Text != a)                             // если строки не существует или она пустая
+            {
+                comboBoxPath.Items.Add(comboBoxPath.Text);          // добавляем новую строку в список
+                saveComboboxList();                                 //сохраняем листинг в файл
+            }
+        }
+        private void ButtonEdit_Click(object sender, EventArgs e) // редактирование пути
+        {
+            comboBoxPath.Items[selNun] = comboBoxPath.Text;
+        }
+        private void ButtonList_Click(object sender, EventArgs e)//получение списка доступных адресов
         {
             TextBoxEditor.Clear();
             for (int i = 0; i < comboBoxPath.Items.Count; i++)      // comboBoxPath.Items.Count - счетчик количества элементов в списке
@@ -93,15 +137,22 @@ namespace ServerConfigEditor
                 TextBoxEditor.Text += GetItemText(i) + '\r' + '\n'; // вывод списка построчно
             }
         }
+        #endregion
+
+        #region Дополнительные функции
         private string GetItemText(int i) // получение элемента списка из массива ComboBox
         {
             return (comboBoxPath.Items[i].ToString()); // Возвращает текст элемента с помощью индекса
         }
 
-        private void FormConfigEditor_FormClosing(object sender, FormClosingEventArgs e)//закрытие формы и выход из программы
+        private void saveComboboxList() // функция сохранения массива комбо в файл
         {
-            Properties.Settings.Default.UserPassword = "";                      // присваем root пустой пароль
-            Properties.Settings.Default.Save();                                 // сохраняемся
+            string[] boxtext = comboBoxPath.Items.OfType<string>().ToArray(); // сохраняем все элементы бокса в массив
+            File.WriteAllLines(@"path.txt", boxtext); // записываем массив в файл
         }
+        #endregion
+
+
+
     }
 }
