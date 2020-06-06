@@ -1,3 +1,27 @@
+A program for viewing and editing files on a remote server.<br/>
+
+Features:<br/>
+Connecting to the server over an encrypted SSH channel.<br/>
+Viewing text files on a remote server (conf, log, ...)<br/>
+Edit the file.<br/>
+<br/>
+File path:<br/>
+Adding custom paths<br/>
+Editing the selected path<br/>
+Deleting a path<br/>
+<br/>
+Shell:<br/>
+Memory of the address and port of the last access.<br/>
+<br/>
+Not implemented:<br/>
+Editing and saving a file to a remote server.<br/>
+Deleting a path from a listing<br/>
+<br/>
+It will be possible:<br/>
+Excluding duplicates from the list<br/>
+Grouping lists by destination (nginx, mysql, etc.)<br/>
+
+
 Программа для просмотра и редактирования файлов на удаленном сервере.<br/>
 
 Возможности:<br/>
