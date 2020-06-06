@@ -49,7 +49,7 @@ namespace ServerConfigEditor.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("22")]
         public int PortIP {
             get {
                 return ((int)(this["PortIP"]));
