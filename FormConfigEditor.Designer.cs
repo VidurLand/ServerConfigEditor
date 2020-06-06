@@ -37,8 +37,8 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonList = new System.Windows.Forms.Button();
             this.buttonOpenServerConnector = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.TextBoxEditor = new System.Windows.Forms.RichTextBox();
+            this.comboBoxPath = new System.Windows.Forms.ComboBox();
             this.buttonExit = new System.Windows.Forms.Button();
             this.groupBoxFile.SuspendLayout();
             this.groupBoxPath.SuspendLayout();
@@ -49,7 +49,7 @@
             this.groupBoxFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxFile.Controls.Add(this.buttonSaveFile);
             this.groupBoxFile.Controls.Add(this.buttonReadFile);
-            this.groupBoxFile.Location = new System.Drawing.Point(865, 89);
+            this.groupBoxFile.Location = new System.Drawing.Point(572, 89);
             this.groupBoxFile.Name = "groupBoxFile";
             this.groupBoxFile.Size = new System.Drawing.Size(200, 97);
             this.groupBoxFile.TabIndex = 0;
@@ -75,6 +75,7 @@
             this.buttonReadFile.TabIndex = 0;
             this.buttonReadFile.Text = "Прочитать";
             this.buttonReadFile.UseVisualStyleBackColor = true;
+            this.buttonReadFile.Click += new System.EventHandler(this.buttonReadFile_Click);
             // 
             // groupBoxPath
             // 
@@ -83,7 +84,7 @@
             this.groupBoxPath.Controls.Add(this.buttonEdit);
             this.groupBoxPath.Controls.Add(this.buttonAdd);
             this.groupBoxPath.Controls.Add(this.buttonList);
-            this.groupBoxPath.Location = new System.Drawing.Point(865, 193);
+            this.groupBoxPath.Location = new System.Drawing.Point(572, 193);
             this.groupBoxPath.Name = "groupBoxPath";
             this.groupBoxPath.Size = new System.Drawing.Size(200, 180);
             this.groupBoxPath.TabIndex = 1;
@@ -133,45 +134,48 @@
             this.buttonList.TabIndex = 0;
             this.buttonList.Text = "Список";
             this.buttonList.UseVisualStyleBackColor = true;
+            this.buttonList.Click += new System.EventHandler(this.ButtonList_Click);
             // 
             // buttonOpenServerConnector
             // 
             this.buttonOpenServerConnector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOpenServerConnector.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOpenServerConnector.Location = new System.Drawing.Point(875, 22);
+            this.buttonOpenServerConnector.Location = new System.Drawing.Point(582, 22);
             this.buttonOpenServerConnector.Name = "buttonOpenServerConnector";
             this.buttonOpenServerConnector.Size = new System.Drawing.Size(184, 30);
             this.buttonOpenServerConnector.TabIndex = 2;
-            this.buttonOpenServerConnector.Text = "Connect";
+            this.buttonOpenServerConnector.Text = "Connect Param";
             this.buttonOpenServerConnector.UseVisualStyleBackColor = true;
+            this.buttonOpenServerConnector.Click += new System.EventHandler(this.buttonOpenServerConnector_Click);
             // 
-            // richTextBox1
+            // TextBoxEditor
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TextBoxEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(12, 144);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(847, 644);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.TextBoxEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TextBoxEditor.Location = new System.Drawing.Point(12, 144);
+            this.TextBoxEditor.Name = "TextBoxEditor";
+            this.TextBoxEditor.Size = new System.Drawing.Size(554, 305);
+            this.TextBoxEditor.TabIndex = 3;
+            this.TextBoxEditor.Text = "";
             // 
-            // comboBox1
+            // comboBoxPath
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.comboBoxPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 110);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(847, 28);
-            this.comboBox1.Sorted = true;
-            this.comboBox1.TabIndex = 4;
+            this.comboBoxPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxPath.FormattingEnabled = true;
+            this.comboBoxPath.Location = new System.Drawing.Point(12, 110);
+            this.comboBoxPath.Name = "comboBoxPath";
+            this.comboBoxPath.Size = new System.Drawing.Size(554, 28);
+            this.comboBoxPath.Sorted = true;
+            this.comboBoxPath.TabIndex = 4;
             // 
             // buttonExit
             // 
             this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonExit.Location = new System.Drawing.Point(875, 764);
+            this.buttonExit.Location = new System.Drawing.Point(582, 425);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(182, 30);
             this.buttonExit.TabIndex = 5;
@@ -183,17 +187,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 800);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.comboBoxPath);
+            this.Controls.Add(this.TextBoxEditor);
             this.Controls.Add(this.buttonOpenServerConnector);
             this.Controls.Add(this.groupBoxFile);
             this.Controls.Add(this.groupBoxPath);
-            this.MinimumSize = new System.Drawing.Size(800, 463);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "FormConfigEditor";
             this.Text = "ConfigEditor";
+            this.Activated += new System.EventHandler(this.FormConfigEditor_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormConfigEditor_FormClosing);
+            this.Load += new System.EventHandler(this.FormConfigEditor_Load);
             this.groupBoxFile.ResumeLayout(false);
             this.groupBoxPath.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -211,8 +217,8 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonList;
         private System.Windows.Forms.Button buttonOpenServerConnector;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RichTextBox TextBoxEditor;
+        private System.Windows.Forms.ComboBox comboBoxPath;
         private System.Windows.Forms.Button buttonExit;
     }
 }
