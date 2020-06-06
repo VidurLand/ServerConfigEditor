@@ -22,6 +22,8 @@ Excluding duplicates from the list<br/>
 Grouping lists by destination (nginx, mysql, etc.)<br/>
 
 
+***
+
 Программа для просмотра и редактирования файлов на удаленном сервере.<br/>
 
 Возможности:<br/>
