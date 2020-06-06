@@ -1,6 +1,6 @@
 ﻿namespace ServerConfigEditor
 {
-    partial class ServerConnector
+    partial class FormServerConnector
     {
         /// <summary>
         /// Required designer variable.

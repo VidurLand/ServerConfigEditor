@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace ServerConfigEditor
 {
-    public partial class ServerConnector : Form
+    public partial class FormServerConnector : Form
     {
-        public ServerConnector()
+        public FormServerConnector()
         {
             InitializeComponent();
         }
