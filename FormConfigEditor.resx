@@ -204,6 +204,78 @@
   <data name="groupBoxPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="&gt;&gt;buttonDelete.Name" xml:space="preserve">
+    <value>buttonDelete</value>
+  </data>
+  <data name="&gt;&gt;buttonDelete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonDelete.Parent" xml:space="preserve">
+    <value>groupBoxPath</value>
+  </data>
+  <data name="&gt;&gt;buttonDelete.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;buttonEdit.Name" xml:space="preserve">
+    <value>buttonEdit</value>
+  </data>
+  <data name="&gt;&gt;buttonEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonEdit.Parent" xml:space="preserve">
+    <value>groupBoxPath</value>
+  </data>
+  <data name="&gt;&gt;buttonEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;buttonAdd.Name" xml:space="preserve">
+    <value>buttonAdd</value>
+  </data>
+  <data name="&gt;&gt;buttonAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonAdd.Parent" xml:space="preserve">
+    <value>groupBoxPath</value>
+  </data>
+  <data name="&gt;&gt;buttonAdd.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;buttonList.Name" xml:space="preserve">
+    <value>buttonList</value>
+  </data>
+  <data name="&gt;&gt;buttonList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonList.Parent" xml:space="preserve">
+    <value>groupBoxPath</value>
+  </data>
+  <data name="&gt;&gt;buttonList.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBoxPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>572, 193</value>
+  </data>
+  <data name="groupBoxPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 180</value>
+  </data>
+  <data name="groupBoxPath.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupBoxPath.Text" xml:space="preserve">
+    <value>Пути</value>
+  </data>
+  <data name="&gt;&gt;groupBoxPath.Name" xml:space="preserve">
+    <value>groupBoxPath</value>
+  </data>
+  <data name="&gt;&gt;groupBoxPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxPath.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxPath.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="buttonDelete.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 11.25pt</value>
   </data>
@@ -324,30 +396,6 @@
   <data name="&gt;&gt;buttonList.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="groupBoxPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>572, 193</value>
-  </data>
-  <data name="groupBoxPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 180</value>
-  </data>
-  <data name="groupBoxPath.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="groupBoxPath.Text" xml:space="preserve">
-    <value>Пути</value>
-  </data>
-  <data name="&gt;&gt;groupBoxPath.Name" xml:space="preserve">
-    <value>groupBoxPath</value>
-  </data>
-  <data name="&gt;&gt;groupBoxPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxPath.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBoxPath.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="buttonOpenServerConnector.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -409,7 +457,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="buttonExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>582, 425</value>
+    <value>582, 419</value>
   </data>
   <data name="buttonExit.Size" type="System.Drawing.Size, System.Drawing">
     <value>182, 30</value>
@@ -437,9 +485,6 @@
   </data>
   <data name="TextBoxEditor.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
     <value>27, 14</value>
-  </data>
-  <data name="TextBoxEditor.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Courier New, 9.75pt</value>
   </data>
   <data name="TextBoxEditor.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 145</value>
