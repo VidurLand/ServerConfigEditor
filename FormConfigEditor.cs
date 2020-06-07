@@ -19,7 +19,6 @@ namespace ServerConfigEditor
         public FormConfigEditor()
         {
             InitializeComponent();
-            TextBoxEditor.SelectionTabs = new int[] { 15, 30, 45, 60 }; //установка размера табуляции в окне редактора
         }
         #region Форма
         private void FormConfigEditor_Load(object sender, EventArgs e) // при загрузке формы
