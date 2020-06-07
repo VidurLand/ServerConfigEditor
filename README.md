@@ -20,6 +20,7 @@ Deleting a path from a listing<br/>
 It will be possible:<br/>
 Excluding duplicates from the list<br/>
 Grouping lists by destination (nginx, mysql, etc.)<br/>
+localization<br/>
 
 
 ***
@@ -46,3 +47,4 @@ Grouping lists by destination (nginx, mysql, etc.)<br/>
 Возможно будет:<br/>
 Исключение дубликатов из списка<br/>
 Группировка списов по назначению (nginx, mysql и т.д.)<br/>
+локализация<br/>
