@@ -111,7 +111,10 @@
             resources.ApplyResources(this.buttonOpenServerConnector, "buttonOpenServerConnector");
             this.buttonOpenServerConnector.Name = "buttonOpenServerConnector";
             this.buttonOpenServerConnector.UseVisualStyleBackColor = true;
+
             this.buttonOpenServerConnector.Click += new System.EventHandler(this.ButtonOpenServerConnector_Click);
+
+
             // 
             // comboBoxPath
             // 
@@ -164,7 +167,10 @@
             this.TextBoxEditor.SelectionChangedDelayedEnabled = false;
             this.TextBoxEditor.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.TextBoxEditor.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("TextBoxEditor.ServiceColors")));
+
             this.TextBoxEditor.WordWrap = true;
+
+
             this.TextBoxEditor.Zoom = 100;
             // 
             // FormConfigEditor
