@@ -143,6 +143,7 @@
         '\''};
             this.TextBoxEditor.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>.+)\r\n";
             this.TextBoxEditor.BackBrush = null;
+            this.TextBoxEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxEditor.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.TextBoxEditor.CharHeight = 14;
             this.TextBoxEditor.CharWidth = 8;
