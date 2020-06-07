@@ -15,11 +15,10 @@ namespace ServerConfigEditor
 {
     public partial class FormConfigEditor : Form
     {
-        int selNun;
+        int selNum;
         public FormConfigEditor()
         {
             InitializeComponent();
-            TextBoxEditor.SelectionTabs = new int[] { 15, 30, 45, 60 }; //установка размера табуляции в окне редактора
         }
         #region Форма
         private void FormConfigEditor_Load(object sender, EventArgs e) // при загрузке формы
@@ -43,7 +42,7 @@ namespace ServerConfigEditor
         #endregion
 
         #region кнопки формы (выход, конфиг подключения)
-        private void buttonOpenServerConnector_Click(object sender, EventArgs e) // вызов формы параметров подключения
+        private void ButtonOpenServerConnector_Click(object sender, EventArgs e) // вызов формы параметров подключения
         {
             FormServerConnector FormServerConnector = new FormServerConnector();
             FormServerConnector.ShowDialog();
@@ -60,7 +59,7 @@ namespace ServerConfigEditor
         private void comboBoxPath_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedPath = comboBoxPath.SelectedItem.ToString();
-            selNun = comboBoxPath.SelectedIndex;
+            selNum = comboBoxPath.SelectedIndex;
         }
         #endregion
 
@@ -104,7 +103,7 @@ namespace ServerConfigEditor
 
         #endregion
 
-        #region Кнопки пути к файлам
+        #region Кнопки путей к файлам
         private void ButtonAdd_Click(object sender, EventArgs e)    // добавление пути
         {
             string a = "";                                          // временная переменная
@@ -121,13 +120,24 @@ namespace ServerConfigEditor
             }
             if (comboBoxPath.Text != a)                             // если строки не существует или она пустая
             {
+                if (comboBoxPath.Text == "")
+                {
+                    MessageBox.Show("Нечего Добавлять!");
+                    return;
+                }
                 comboBoxPath.Items.Add(comboBoxPath.Text);          // добавляем новую строку в список
                 saveComboboxList();                                 //сохраняем листинг в файл
             }
         }
         private void ButtonEdit_Click(object sender, EventArgs e) // редактирование пути
         {
-            comboBoxPath.Items[selNun] = comboBoxPath.Text;
+            if (comboBoxPath.Text == "")
+            {
+                MessageBox.Show("Нечего Редактировать!");
+                return;
+            }
+            comboBoxPath.Items[selNum] = comboBoxPath.Text;
+            saveComboboxList();
         }
         private void ButtonList_Click(object sender, EventArgs e)//получение списка доступных адресов
         {
@@ -135,7 +145,23 @@ namespace ServerConfigEditor
             for (int i = 0; i < comboBoxPath.Items.Count; i++)      // comboBoxPath.Items.Count - счетчик количества элементов в списке
             {
                 TextBoxEditor.Text += GetItemText(i) + '\r' + '\n'; // вывод списка построчно
+                comboBoxPath.Text = "";                             // на всякий случай чистим Комбо
             }
+        }
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBoxPath.Text == "")
+                {
+                    MessageBox.Show("ОШИБКА." + "\r\n" + "Нельзя удалить НЕСУЩЕСТВУЮЩЕЕ");
+                    return;
+                }
+                comboBoxPath.Items.RemoveAt(selNum);
+                comboBoxPath.Text = "";
+                saveComboboxList();
+            }
+            catch { }
         }
         #endregion
 
@@ -150,8 +176,9 @@ namespace ServerConfigEditor
             string[] boxtext = comboBoxPath.Items.OfType<string>().ToArray(); // сохраняем все элементы бокса в массив
             File.WriteAllLines(@"path.txt", boxtext); // записываем массив в файл
         }
-        #endregion
 
+
+        #endregion
 
 
     }
