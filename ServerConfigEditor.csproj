@@ -32,11 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FastColoredTextBox, Version=2.16.26.100, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
+      <HintPath>packages\Sara-FCTB.2.16.26.105\lib\net35\FastColoredTextBox.dll</HintPath>
+    </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,7 +68,13 @@
     <EmbeddedResource Include="FormConfigEditor.resx">
       <DependentUpon>FormConfigEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormServerConnector.en.resx">
+      <DependentUpon>FormServerConnector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormServerConnector.resx">
+      <DependentUpon>FormServerConnector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServerConnector.ru.resx">
       <DependentUpon>FormServerConnector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
