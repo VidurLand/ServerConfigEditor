@@ -6,6 +6,7 @@ Viewing text files on a remote server (conf, log, ...)<br/>
 Edit the file.<br/>
 <br/>
 File path:<br/>
+Listing path<br/>
 Adding custom paths<br/>
 Editing the selected path<br/>
 Deleting a path<br/>
@@ -15,7 +16,7 @@ Memory of the address and port of the last access.<br/>
 <br/>
 Not implemented:<br/>
 Editing and saving a file to a remote server.<br/>
-Deleting a path from a listing<br/>
+
 <br/>
 It will be possible:<br/>
 Excluding duplicates from the list<br/>
@@ -33,6 +34,7 @@ localization<br/>
 Редактирование файлов.<br/>
 <br/>
 Пути к файлам:<br/>
+Просмотр списка путей<br/>
 Добавление произвольных путей<br/>
 Редактирование выбранного пути<br/>
 Удаление пути<br/>
@@ -42,7 +44,7 @@ localization<br/>
 <br/>
 Не реализовано:<br/>
 Редактирование и сохранение файла на удаленный сервер.<br/>
-Удаление пути из листинга<br/>
+
 <br/>
 Возможно будет:<br/>
 Исключение дубликатов из списка<br/>
