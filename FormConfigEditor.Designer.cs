@@ -112,7 +112,7 @@
             this.comboBoxPath.Name = "comboBoxPath";
             this.comboBoxPath.Sorted = true;
             this.comboBoxPath.SelectedIndexChanged += new System.EventHandler(this.ComboBoxPath_SelectedIndexChanged);
-            // 
+             // 
             // buttonExit
             // 
             resources.ApplyResources(this.buttonExit, "buttonExit");
