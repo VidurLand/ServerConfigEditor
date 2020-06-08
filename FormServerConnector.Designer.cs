@@ -41,6 +41,7 @@
             // 
             resources.ApplyResources(this.RootPassword, "RootPassword");
             this.RootPassword.Name = "RootPassword";
+            this.RootPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RootPassword_KeyDown);
             // 
             // Label_IP
             // 

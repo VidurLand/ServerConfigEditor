@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConfigEditor));
             this.groupBoxFile = new System.Windows.Forms.GroupBox();
             this.buttonSaveFile = new System.Windows.Forms.Button();
-            this.buttonReadFile = new System.Windows.Forms.Button();
             this.groupBoxPath = new System.Windows.Forms.GroupBox();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
@@ -51,7 +50,6 @@
             // 
             resources.ApplyResources(this.groupBoxFile, "groupBoxFile");
             this.groupBoxFile.Controls.Add(this.buttonSaveFile);
-            this.groupBoxFile.Controls.Add(this.buttonReadFile);
             this.groupBoxFile.Name = "groupBoxFile";
             this.groupBoxFile.TabStop = false;
             // 
@@ -61,13 +59,6 @@
             this.buttonSaveFile.Name = "buttonSaveFile";
             this.buttonSaveFile.UseVisualStyleBackColor = true;
             this.buttonSaveFile.Click += new System.EventHandler(this.ButtonSaveFile_Click);
-            // 
-            // buttonReadFile
-            // 
-            resources.ApplyResources(this.buttonReadFile, "buttonReadFile");
-            this.buttonReadFile.Name = "buttonReadFile";
-            this.buttonReadFile.UseVisualStyleBackColor = true;
-            this.buttonReadFile.Click += new System.EventHandler(this.ButtonReadFile_Click);
             // 
             // groupBoxPath
             // 
@@ -120,7 +111,7 @@
             this.comboBoxPath.FormattingEnabled = true;
             this.comboBoxPath.Name = "comboBoxPath";
             this.comboBoxPath.Sorted = true;
-            this.comboBoxPath.SelectedIndexChanged += new System.EventHandler(this.comboBoxPath_SelectedIndexChanged);
+            this.comboBoxPath.SelectedIndexChanged += new System.EventHandler(this.ComboBoxPath_SelectedIndexChanged);
             // 
             // buttonExit
             // 
@@ -194,7 +185,6 @@
         private System.Windows.Forms.GroupBox groupBoxFile;
         private System.Windows.Forms.GroupBox groupBoxPath;
         private System.Windows.Forms.Button buttonSaveFile;
-        private System.Windows.Forms.Button buttonReadFile;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonAdd;

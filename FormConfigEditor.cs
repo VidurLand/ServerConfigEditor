@@ -19,12 +19,16 @@ namespace ServerConfigEditor
         public FormConfigEditor()
         {
             InitializeComponent();
+
         }
         #region Форма
         private void FormConfigEditor_Load(object sender, EventArgs e) // при загрузке формы
         {
             string[] boxtext = File.ReadAllLines(@"path.txt");          // загружаем данные из файла в массив
             comboBoxPath.Items.AddRange(boxtext);                       // помещаем массив в Combobox
+            
+            //ButtonOpenServerConnector_Click(sender, e); // вызов формы параметров подключения (можно раскомментировать
+            // тогда при запуске будет сразу вызываться форма подключения)
         }
         private void FormConfigEditor_Activated(object sender, EventArgs e) // при активации формы
         {
@@ -56,16 +60,11 @@ namespace ServerConfigEditor
         #endregion
 
         #region ComboBox
-        private void comboBoxPath_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxPath_SelectedIndexChanged(object sender, EventArgs e) // изменение в комбобоксе
         {
             string selectedPath = comboBoxPath.SelectedItem.ToString();
             selNum = comboBoxPath.SelectedIndex;
-        }
-        #endregion
 
-        #region Кнопки управления файлами
-        private void ButtonReadFile_Click(object sender, EventArgs e)// чтение файла с сервера
-        {
             TextBoxEditor.Clear();                                              // очистка бокса
             string ServerIP = Properties.Settings.Default.ServerIP;         // IP сервера
             int ServerPort = Properties.Settings.Default.PortIP;            //  Порт 
@@ -93,6 +92,8 @@ namespace ServerConfigEditor
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);    // вывод описания ошибки подключения
+                    FormServerConnector FormServerConnector = new FormServerConnector(); // при ошибке подключения переходим к настройкам
+                    FormServerConnector.ShowDialog();
                 }
                 finally
                 {
@@ -100,6 +101,9 @@ namespace ServerConfigEditor
                 }
             }
         }
+        #endregion
+
+        #region Кнопки управления файлами
         private void ButtonSaveFile_Click(object sender, EventArgs e)// сохранение файла на сервер
         {
             string ServerIP = Properties.Settings.Default.ServerIP;         // IP сервера
@@ -226,9 +230,6 @@ namespace ServerConfigEditor
             string[] boxtext = comboBoxPath.Items.OfType<string>().ToArray(); // сохраняем все элементы бокса в массив
             File.WriteAllLines(@"path.txt", boxtext); // записываем массив в файл
         }
-
-
-
         #endregion
 
 
