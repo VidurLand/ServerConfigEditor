@@ -10,31 +10,39 @@ using System.Windows.Forms;
 using Renci.SshNet;
 using Renci.SshNet.Security.Cryptography;
 using System.IO;
+using Renci.SshNet.Common;
+using System.Net.Sockets;
 
 namespace ServerConfigEditor
 {
     public partial class FormConfigEditor : Form
     {
+        #region Область переменных
+
+        string ServerIP;            // ip сервера
+        int ServerPort;             // порт сервера (по умолчанию 22)
+        string PasswordRoot;        // пароль пользователя root
+
+        #endregion
         int selNum;
         public FormConfigEditor()
         {
             InitializeComponent();
-
         }
         #region Форма
         private void FormConfigEditor_Load(object sender, EventArgs e) // при загрузке формы
         {
             string[] boxtext = File.ReadAllLines(@"path.txt");          // загружаем данные из файла в массив
             comboBoxPath.Items.AddRange(boxtext);                       // помещаем массив в Combobox
-            
+
             //ButtonOpenServerConnector_Click(sender, e); // вызов формы параметров подключения (можно раскомментировать
             // тогда при запуске будет сразу вызываться форма подключения)
         }
         private void FormConfigEditor_Activated(object sender, EventArgs e) // при активации формы
         {
-            string ServerIP = Properties.Settings.Default.ServerIP; // IP СЕРВЕРА
-            int ServerPort = Properties.Settings.Default.PortIP;    // ПОРТ СЕРВЕРА
-            string PasswordRoot = Properties.Settings.Default.UserPassword; // Пароль root ( при выходе из приложения пароль сбрасывается)
+            ServerIP = Properties.Settings.Default.ServerIP; // IP СЕРВЕРА
+            ServerPort = Properties.Settings.Default.PortIP;    // ПОРТ СЕРВЕРА
+            PasswordRoot = Properties.Settings.Default.UserPassword; // Пароль root ( при выходе из приложения пароль сбрасывается)
             buttonOpenServerConnector.Text = ServerIP + ":" + ServerPort.ToString(); // вывод в текст кнопки адрес и порт
         }
         private void FormConfigEditor_FormClosing(object sender, FormClosingEventArgs e)//закрытие формы и выход из программы
@@ -62,14 +70,10 @@ namespace ServerConfigEditor
         #region ComboBox
         private void ComboBoxPath_SelectedIndexChanged(object sender, EventArgs e) // изменение в комбобоксе
         {
-            string selectedPath = comboBoxPath.SelectedItem.ToString();
-            selNum = comboBoxPath.SelectedIndex;
+            selNum = comboBoxPath.SelectedIndex; // номер выбранной строки из списка путей
 
             TextBoxEditor.Clear();                                              // очистка бокса
-            string ServerIP = Properties.Settings.Default.ServerIP;         // IP сервера
-            int ServerPort = Properties.Settings.Default.PortIP;            //  Порт 
-            string PasswordRoot = Properties.Settings.Default.UserPassword; // Пароль пользователя root
-            buttonOpenServerConnector.Text = ServerIP + ":" + ServerPort.ToString(); // ??? (надо ли? )вывод в метку адрес и порт
+
 
             using (var sftp = new SftpClient(ServerIP, ServerPort, "root", PasswordRoot)) //переменная для подключения
             {
@@ -86,14 +90,35 @@ namespace ServerConfigEditor
                         {
                             string FilePath = comboBoxPath.SelectedItem.ToString(); // преобразуем выбранный пункт в стринг                       
                             TextBoxEditor.Text = sftp.ReadAllText(FilePath);        // вывод содержимого в окно редактора
+                            TextBoxEditor.Select();     // меняем фокус на поле редактора
                         }
                     }
+                }
+                catch (SshAuthenticationException) // ошибка аутентификации (доступ запрещен (пароль))
+                {
+                    MessageBox.Show("Доступ запрещен." + "\r\n" + "Введите пароль!");
+                    ButtonOpenServerConnector_Click(sender, e);
+                }
+
+                catch (ArgumentException) // ошибка в адреме
+                {
+                    MessageBox.Show("Введен неопределенный адрес." + "\r\n" + "Введите HostName или IP сервера!");
+                    ButtonOpenServerConnector_Click(sender, e);
+                }
+
+                catch (SocketException) // неизвестный хост
+                {
+                    MessageBox.Show("Неизвестный Хост." + "\r\n" + "Введите правильный HostName или IP сервера!");
+                    ButtonOpenServerConnector_Click(sender, e);
+                }
+
+                catch (SftpPathNotFoundException)
+                {
+                    MessageBox.Show("Нет такого файла!");    // вывод описания ошибки подключения
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);    // вывод описания ошибки подключения
-                    FormServerConnector FormServerConnector = new FormServerConnector(); // при ошибке подключения переходим к настройкам
-                    FormServerConnector.ShowDialog();
                 }
                 finally
                 {
@@ -106,10 +131,6 @@ namespace ServerConfigEditor
         #region Кнопки управления файлами
         private void ButtonSaveFile_Click(object sender, EventArgs e)// сохранение файла на сервер
         {
-            string ServerIP = Properties.Settings.Default.ServerIP;         // IP сервера
-            int ServerPort = Properties.Settings.Default.PortIP;            //  Порт 
-            string PasswordRoot = Properties.Settings.Default.UserPassword; // Пароль пользователя root
-            buttonOpenServerConnector.Text = ServerIP + ":" + ServerPort.ToString(); // ??? (надо ли? )вывод в метку адрес и порт
 
             using (var sftp = new SftpClient(ServerIP, ServerPort, "root", PasswordRoot)) //переменная для подключения
             {
@@ -231,7 +252,6 @@ namespace ServerConfigEditor
             File.WriteAllLines(@"path.txt", boxtext); // записываем массив в файл
         }
         #endregion
-
 
     }
 }

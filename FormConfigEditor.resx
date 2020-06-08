@@ -154,7 +154,7 @@
     <value>0</value>
   </data>
   <data name="groupBoxFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>697, 140</value>
+    <value>1077, 140</value>
   </data>
   <data name="groupBoxFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 61</value>
@@ -229,7 +229,7 @@
     <value>3</value>
   </data>
   <data name="groupBoxPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>697, 220</value>
+    <value>1077, 220</value>
   </data>
   <data name="groupBoxPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 180</value>
@@ -382,7 +382,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonOpenServerConnector.Location" type="System.Drawing.Point, System.Drawing">
-    <value>705, 19</value>
+    <value>1085, 19</value>
   </data>
   <data name="buttonOpenServerConnector.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 30</value>
@@ -415,7 +415,7 @@
     <value>12, 110</value>
   </data>
   <data name="comboBoxPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>679, 28</value>
+    <value>1059, 28</value>
   </data>
   <data name="comboBoxPath.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -436,7 +436,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="buttonExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>707, 592</value>
+    <value>1087, 658</value>
   </data>
   <data name="buttonExit.Size" type="System.Drawing.Size, System.Drawing">
     <value>182, 30</value>
@@ -463,7 +463,10 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="TextBoxEditor.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 14</value>
+    <value>31, 18</value>
+  </data>
+  <data name="TextBoxEditor.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 12pt</value>
   </data>
   <data name="TextBoxEditor.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 145</value>
@@ -487,7 +490,7 @@
 </value>
   </data>
   <data name="TextBoxEditor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>679, 477</value>
+    <value>1059, 543</value>
   </data>
   <data name="TextBoxEditor.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -511,7 +514,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>909, 634</value>
+    <value>1289, 700</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>800, 500</value>

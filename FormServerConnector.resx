@@ -195,7 +195,7 @@
   <data name="&gt;&gt;ServerIP.Name" xml:space="preserve">
     <value>ServerIP</value>
   </data>
-  <data name="RootPassword.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="EnterButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 11.25pt</value>
   </data>
   <data name="EnterButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
@@ -234,6 +234,9 @@
   <data name="ServerPort.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;Label_IP.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="RootPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 24</value>
   </data>
+  <data name="ServerIP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
   <data name="RootPassword.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -257,9 +263,6 @@
   </data>
   <data name="&gt;&gt;RootPassword.Name" xml:space="preserve">
     <value>RootPassword</value>
-  </data>
-  <data name="ServerPort.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
   </data>
   <data name="&gt;&gt;ServerPort.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -272,6 +275,9 @@
   </data>
   <data name="ServerPort.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 24</value>
+  </data>
+  <data name="RootPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
   </data>
   <data name="&gt;&gt;LabelPassword.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -297,14 +303,8 @@
   <data name="&gt;&gt;ServerIP.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="EnterButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 11.25pt</value>
-  </data>
   <data name="ServerIP.Location" type="System.Drawing.Point, System.Drawing">
     <value>132, 23</value>
-  </data>
-  <data name="&gt;&gt;ServerIP.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="EnterButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 43</value>
@@ -315,8 +315,8 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>364, 171</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ServerPort.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="LabelPassword.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -327,8 +327,8 @@
   <data name="&gt;&gt;RootPassword.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ServerIP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+  <data name="&gt;&gt;ServerIP.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
