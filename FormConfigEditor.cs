@@ -126,9 +126,17 @@ namespace ServerConfigEditor
                             {
                                 sftp.Delete(FilePath + ".old"); //то удаляем его
                             }
+                            if (!sftp.Exists(FilePath)) // если файл на пути не существует, 
+                            {
+                                sftp.Create(FilePath);  //то создаем его
 
-                            sftp.RenameFile(FilePath, FilePath + ".old"); // переименование старого файла в .old
-                            sftp.WriteAllText(FilePath, TextBoxEditor.Text); // запись нового файла 
+                            }
+                            else                                                // если файл существует
+                            {
+                                sftp.RenameFile(FilePath, FilePath + ".old"); // то переименовываем  файл в .old
+
+                            }
+                            sftp.WriteAllText(FilePath, TextBoxEditor.Text); // запись нового файла
 
                         }
                     }
