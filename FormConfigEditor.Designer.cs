@@ -138,8 +138,8 @@
             this.TextBoxEditor.BackBrush = null;
             this.TextBoxEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxEditor.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
-            this.TextBoxEditor.CharHeight = 14;
-            this.TextBoxEditor.CharWidth = 8;
+            this.TextBoxEditor.CharHeight = 18;
+            this.TextBoxEditor.CharWidth = 10;
             this.TextBoxEditor.CommentPrefix = "--";
             this.TextBoxEditor.CurrentPenSize = 3;
             this.TextBoxEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -156,7 +156,7 @@
             this.TextBoxEditor.SelectionChangedDelayedEnabled = false;
             this.TextBoxEditor.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.TextBoxEditor.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("TextBoxEditor.ServiceColors")));
-            this.TextBoxEditor.WordWrap = true;
+            this.TextBoxEditor.TabLength = 2;
             this.TextBoxEditor.Zoom = 100;
             // 
             // FormConfigEditor
