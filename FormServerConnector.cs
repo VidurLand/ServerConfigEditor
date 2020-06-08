@@ -33,5 +33,13 @@ namespace ServerConfigEditor
             Properties.Settings.Default.Save();
             Close();
         }
+
+        private void RootPassword_KeyDown(object sender, KeyEventArgs e) // действие при нажатии кнопки
+        {
+            if (e.KeyCode == Keys.Enter)    // если нажата кнопка Enter
+            {
+                EnterButton_Click(sender, e);   // то вызываем нажатие кнопки вход
+            }
+        }
     }
 }
