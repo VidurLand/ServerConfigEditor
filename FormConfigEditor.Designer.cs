@@ -60,6 +60,7 @@
             resources.ApplyResources(this.buttonSaveFile, "buttonSaveFile");
             this.buttonSaveFile.Name = "buttonSaveFile";
             this.buttonSaveFile.UseVisualStyleBackColor = true;
+            this.buttonSaveFile.Click += new System.EventHandler(this.ButtonSaveFile_Click);
             // 
             // buttonReadFile
             // 

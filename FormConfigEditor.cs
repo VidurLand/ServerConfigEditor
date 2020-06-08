@@ -64,7 +64,7 @@ namespace ServerConfigEditor
         #endregion
 
         #region Кнопки управления файлами
-        private void ButtonReadFile_Click(object sender, EventArgs e)// получение файла с сервера
+        private void ButtonReadFile_Click(object sender, EventArgs e)// чтение файла с сервера
         {
             TextBoxEditor.Clear();                                              // очистка бокса
             string ServerIP = Properties.Settings.Default.ServerIP;         // IP сервера
@@ -100,7 +100,49 @@ namespace ServerConfigEditor
                 }
             }
         }
+        private void ButtonSaveFile_Click(object sender, EventArgs e)// сохранение файла на сервер
+        {
+            string ServerIP = Properties.Settings.Default.ServerIP;         // IP сервера
+            int ServerPort = Properties.Settings.Default.PortIP;            //  Порт 
+            string PasswordRoot = Properties.Settings.Default.UserPassword; // Пароль пользователя root
+            buttonOpenServerConnector.Text = ServerIP + ":" + ServerPort.ToString(); // ??? (надо ли? )вывод в метку адрес и порт
 
+            using (var sftp = new SftpClient(ServerIP, ServerPort, "root", PasswordRoot)) //переменная для подключения
+            {
+                try
+                {
+                    sftp.Connect();         // попытка подключения
+                    if (sftp.IsConnected)   // если подключились
+                    {
+                        if (comboBoxPath.SelectedItem == null)  // проверяем поле ввода на нулевое значение
+                        {
+                            MessageBox.Show("Выберите существующий объект");    // если поле нулевое, то вывод сообщения
+                        }
+                        else
+                        {
+                            string FilePath = comboBoxPath.SelectedItem.ToString(); // преобразуем выбранный пункт в стринг   
+
+                            if (sftp.Exists(FilePath + ".old")) // если файл old существует
+                            {
+                                sftp.Delete(FilePath + ".old"); //то удаляем его
+                            }
+
+                            sftp.RenameFile(FilePath, FilePath + ".old"); // переименование старого файла в .old
+                            sftp.WriteAllText(FilePath, TextBoxEditor.Text); // запись нового файла 
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);    // вывод описания ошибки подключения
+                }
+                finally
+                {
+                    sftp.Disconnect();              // отключаемся от сервера
+                }
+            }
+        }
         #endregion
 
         #region Кнопки путей к файлам
@@ -176,6 +218,7 @@ namespace ServerConfigEditor
             string[] boxtext = comboBoxPath.Items.OfType<string>().ToArray(); // сохраняем все элементы бокса в массив
             File.WriteAllLines(@"path.txt", boxtext); // записываем массив в файл
         }
+
 
 
         #endregion

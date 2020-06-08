@@ -438,6 +438,9 @@
   <data name="TextBoxEditor.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
     <value>0, 14</value>
   </data>
+  <data name="TextBoxEditor.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 9.75pt</value>
+  </data>
   <data name="TextBoxEditor.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 145</value>
   </data>
