@@ -49,7 +49,7 @@ namespace ServerConfigEditor
         {
             Properties.Settings.Default.UserPassword = "";                      // присваем root пустой пароль
             Properties.Settings.Default.Save();                                 // сохраняемся
-            saveComboboxList();                                                 //сохраняем массив ComboBox в файл
+            SaveComboboxList();                                                 //сохраняем массив ComboBox в файл
         }
         #endregion
 
@@ -201,7 +201,7 @@ namespace ServerConfigEditor
                     return;
                 }
                 comboBoxPath.Items.Add(comboBoxPath.Text);          // добавляем новую строку в список
-                saveComboboxList();                                 //сохраняем листинг в файл
+                SaveComboboxList();                                 //сохраняем листинг в файл
             }
         }
         private void ButtonEdit_Click(object sender, EventArgs e) // редактирование пути
@@ -212,7 +212,7 @@ namespace ServerConfigEditor
                 return;
             }
             comboBoxPath.Items[selNum] = comboBoxPath.Text;
-            saveComboboxList();
+            SaveComboboxList();
         }
         private void ButtonList_Click(object sender, EventArgs e)//получение списка доступных адресов
         {
@@ -223,7 +223,7 @@ namespace ServerConfigEditor
                 comboBoxPath.Text = "";                             // на всякий случай чистим Комбо
             }
         }
-        private void buttonDelete_Click(object sender, EventArgs e)
+        private void ButtonDelete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -234,7 +234,7 @@ namespace ServerConfigEditor
                 }
                 comboBoxPath.Items.RemoveAt(selNum);
                 comboBoxPath.Text = "";
-                saveComboboxList();
+                SaveComboboxList();
             }
             catch { }
         }
@@ -246,7 +246,7 @@ namespace ServerConfigEditor
             return (comboBoxPath.Items[i].ToString()); // Возвращает текст элемента с помощью индекса
         }
 
-        private void saveComboboxList() // функция сохранения массива комбо в файл
+        private void SaveComboboxList() // функция сохранения массива комбо в файл
         {
             string[] boxtext = comboBoxPath.Items.OfType<string>().ToArray(); // сохраняем все элементы бокса в массив
             File.WriteAllLines(@"path.txt", boxtext); // записываем массив в файл
